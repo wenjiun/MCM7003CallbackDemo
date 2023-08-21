@@ -1,4 +1,4 @@
-from dash import Dash, html, dcc
+from dash import Dash, html, dcc, Input, Output
 import plotly.express as px
 
 app = Dash(__name__)
