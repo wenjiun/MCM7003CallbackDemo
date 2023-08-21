@@ -27,7 +27,7 @@ def update_my_graph(val_chosen):
     if (val_chosen == 'Figure 1'):
         return fig1	
     else: 
-	return fig2
+        return fig2
 
 
 if __name__ == '__main__':
