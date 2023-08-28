@@ -26,7 +26,7 @@ app.layout = html.Div(
 
 def update_my_graph(value_chosen):
     if (val_chosen == 'Figure 1'):
-    	return fig1	
+	return fig1	
     else:
 	return fig2
 
