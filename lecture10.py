@@ -6,10 +6,10 @@ server = app.server
 
 app.title = "MCM7003 Data Visualization Interactive Demo" 
 
-fig1 = px.line(x=["a","b","c","d","e"], y=[1,3,2,2,3], title="Sample figure")	
+fig1 = px.line(x=["a","b","c","d","e"], y=[1,3,2,2,3], title="Figure 1: Line Chart")	
 
 df = px.data.iris()
-fig2 = px.scatter(df, x="sepal_width", y="sepal_length", color="species", title="A Plotly Express Figure")
+fig2 = px.scatter(df, x="sepal_width", y="sepal_length", color="species", title="Figure 2: Scatter Plot")
 
 app.layout = html.Div(
     [html.H1("Data Visualization"),
