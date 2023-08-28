@@ -13,14 +13,15 @@ fig2 = px.scatter(df, x="sepal_width", y="sepal_length", color="species", title=
 
 app.layout = html.Div(
     [html.H1("Data Visualization"),
-    dcc.RadioItems(id='my-radio', options=['Figure 1', 'Figure 2'], value='Figure 1', inline=True),
+#   dcc.RadioItems(id='my-radio', options=['Figure 1', 'Figure 2'], value='Figure 1', inline=True),
+    dcc.Dropdown(['Figure 1', 'Figure 2'], 'Figure 1', id='my-dropdown'),
     dcc.Graph(id='graph-output', figure ={})]
 )
 
 
 @app.callback(
     Output(component_id='graph-output', component_property='figure'),
-    Input(component_id='my-radio', component_property='value')
+    Input(component_id='my-dropdown', component_property='value')
 )
 
 def update_my_graph(val_chosen):
