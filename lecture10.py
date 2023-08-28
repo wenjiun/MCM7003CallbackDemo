@@ -1,7 +1,7 @@
 from dash import Dash, html, dcc, Input, Output
 import pandas as pd
 import plotly.express as px
-
+import dash_daq as daq
 
 app = Dash(__name__)
 server = app.server
@@ -28,17 +28,24 @@ app.layout = html.Div(
        'clothing_footwear', 'housing_utilities', 'furnishings', 'health',
        'transport', 'communication', 'recreation_culture', 'education',
        'hospitality', 'misc'], 'overall', id='my-dropdown'),
+    daq.ColorPicker(
+        id='my-color-picker',
+        label='Color Picker',
+        value=dict(hex='#119DFF')
+    ),
     dcc.Graph(id='graph-output', figure ={})]
 )
 
 
 @app.callback(
     Output(component_id='graph-output', component_property='figure'),
-    Input(component_id='my-dropdown', component_property='value')
+    Input(component_id='my-dropdown', component_property='value'),
+    Input(component_id='my-color-picker', component_property='value')
 )
 
-def update_my_graph(val_chosen):
-    fig1 = px.line(df, x='date', y=val_chosen, title=val_chosen).update_layout(xaxis_title="Date", yaxis_title="Index")
+def update_my_graph(dropdown_chosen, color_chosen):
+    fig1 = px.line(df, x='date', y=dropdown_chosen, title=dropdown_chosen).update_layout(xaxis_title="Date", yaxis_title="Index")
+    fig1.update_traces(line_color=color_chosen['hex'])
     return fig1	
 
 
