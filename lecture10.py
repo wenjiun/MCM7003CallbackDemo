@@ -13,9 +13,9 @@ df = pd.read_csv('https://raw.githubusercontent.com/wenjiun/MCM7003CallbackDemo/
 #fig1 = px.line(x=["a","b","c","d","e"], y=[1,3,2,2,3], title="Figure 1: Line Chart")	
 
 #fig1 = px.line(df, x='date', y=['overall', 'food_beverage', 'alcohol_tobacco',
-       'clothing_footwear', 'housing_utilities', 'furnishings', 'health',
-       'transport', 'communication', 'recreation_culture', 'education',
-       'hospitality', 'misc'], title='Figure 1: Consumer Price Index').update_layout(xaxis_title="Date", yaxis_title="Index")
+#       'clothing_footwear', 'housing_utilities', 'furnishings', 'health',
+#       'transport', 'communication', 'recreation_culture', 'education',
+#       'hospitality', 'misc'], title='Figure 1: Consumer Price Index').update_layout(xaxis_title="Date", yaxis_title="Index")
 
 #df = px.data.iris()
 #fig2 = px.scatter(df, x="sepal_width", y="sepal_length", color="species", title="Figure 2: Scatter Plot")
@@ -36,6 +36,7 @@ app.layout = html.Div(
     Output(component_id='graph-output', component_property='figure'),
     Input(component_id='my-dropdown', component_property='value')
 )
+
 def update_my_graph(val_chosen):
     fig1 = px.line(df, x='date', y=val_chosen, title=val_chosen).update_layout(xaxis_title="Date", yaxis_title="Index")
     return fig1	
