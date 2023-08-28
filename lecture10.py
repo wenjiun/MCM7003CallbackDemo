@@ -24,7 +24,7 @@ app.layout = html.Div(
     Input(component_id='my-radio', component_property='value')
 )
 
-def update_my_graph(value_chosen):
+def update_my_graph(val_chosen):
     if (val_chosen == 'Figure 1'):
         return fig1	
     else:
